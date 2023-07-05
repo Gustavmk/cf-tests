@@ -8,12 +8,7 @@ terraform {
 
 }
 
-provider "azurerm" {
-  features {}
-
-}
-
 provider "cloudflare" {
-  email   = data.azurerm_key_vault_secret.cloudflare-email.value
-  api_key = data.azurerm_key_vault_secret.cloudflare-token.value
+  email   = var.cloudflare_email
+  api_key = var.cloudflare_api_token
 }
